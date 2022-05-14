@@ -6,14 +6,17 @@ class ScreenHome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-          child: ListView(
-        children: List.generate(100, (index) {
-          return Column(
-            children: [Text(index.toString()), const Divider()],
-          );
-        }),
-      )),
-    );
+      appBar: AppBar(),
+        body: SafeArea(
+            child: ListView.separated(
+      itemBuilder: (context, index) {
+        return Text(index.toString());
+      },
+      separatorBuilder: (context, index) {
+        // ignore: prefer_const_constructors
+        return Divider();
+      },
+      itemCount: 100,
+    )));
   }
 }
