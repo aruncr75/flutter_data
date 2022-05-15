@@ -14,14 +14,14 @@ class MyApp extends StatelessWidget {
     // ignore: prefer_const_constructors
     return MaterialApp(
       home: const ScreenOne(),
-      routes: {
-        "screen_1": (context) {
-          return const ScreenOne();
-        },
-        "screen_2": (context) {
-          return const ScreenTwo();
-        }
-      },
+      // routes: {
+      //   "screen_1": (context) {
+      //     return const ScreenOne();
+      //   },
+      //   "screen_2": (context) {
+      //     return ScreenTwo();
+      //   }
+      // },
     );
   }
 }

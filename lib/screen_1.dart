@@ -10,19 +10,22 @@ class ScreenOne extends StatelessWidget {
     return Scaffold(
         backgroundColor: Colors.amber,
         body: SafeArea(
-            child: Column(
-          children: [
-            const Text("hello"),
-            ElevatedButton(
-                onPressed: () {
-                  // Navigator.of(context)
-                  //     .push(MaterialPageRoute(builder: (context) {
-                  //   return const ScreenTwo();
-                  // }));
-                  Navigator.of(context).pushNamed('screen_2');
-                },
-                child: const Text(" Go to Screen 2"))
-          ],
-        )));
+          child: ListView.separated(
+              itemBuilder: (context, index) {
+                return ListTile(
+                  title: Text("page_$index"),
+                  onTap: () {
+                    Navigator.of(context)
+                        .push(MaterialPageRoute(builder: (context) {
+                      return ScreenTwo(name: "page_$index");
+                    }));
+                  },
+                );
+              },
+              separatorBuilder: (context, index) {
+                return const Divider();
+              },
+              itemCount: 20),
+        ));
   }
 }
