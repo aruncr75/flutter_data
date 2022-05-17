@@ -1,41 +1,33 @@
 {
   "project_info": {
-    "project_number": "297392949392",
-    "project_id": "proj-7f275",
-    "storage_bucket": "proj-7f275.appspot.com"
+    "project_number": "1036361841821",
+    "project_id": "mynest-17be8",
+    "storage_bucket": "mynest-17be8.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:297392949392:android:90ee3cb7375f2b27c0f015",
+        "mobilesdk_app_id": "1:1036361841821:android:3e97f3313387f7d90ba874",
         "android_client_info": {
-          "package_name": "com.example.firstapp1"
+          "package_name": "com.nortcele.mynest"
         }
       },
       "oauth_client": [
         {
-          "client_id": "297392949392-29o9f7j1gu0mdlv0km8toivo8vjmfk1e.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.example.firstapp1",
-            "certificate_hash": "ec95824987d2d6ae1a40cfb90f115c451d72ade2"
-          }
-        },
-        {
-          "client_id": "297392949392-p6i2j9438i4pj92550ne8f3alec46q1a.apps.googleusercontent.com",
+          "client_id": "1036361841821-4m369t0uufogo3cc0dtrcmeo8f76rare.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCe0utNc3gu8_a28vLwxaWIcoLjVauBCEI"
+          "current_key": "AIzaSyBZYIcgy1VjU8o0aAvzd_VPF1Gp3vcH6zk"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "297392949392-p6i2j9438i4pj92550ne8f3alec46q1a.apps.googleusercontent.com",
+              "client_id": "1036361841821-4m369t0uufogo3cc0dtrcmeo8f76rare.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
