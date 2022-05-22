@@ -7,6 +7,35 @@
   "client": [
     {
       "client_info": {
+        "mobilesdk_app_id": "1:1036361841821:android:540e1188fe30b9130ba874",
+        "android_client_info": {
+          "package_name": "com.example.firstapp1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1036361841821-4m369t0uufogo3cc0dtrcmeo8f76rare.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBZYIcgy1VjU8o0aAvzd_VPF1Gp3vcH6zk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1036361841821-4m369t0uufogo3cc0dtrcmeo8f76rare.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
         "mobilesdk_app_id": "1:1036361841821:android:3e97f3313387f7d90ba874",
         "android_client_info": {
           "package_name": "com.nortcele.mynest"

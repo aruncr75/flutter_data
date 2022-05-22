@@ -1,4 +1,5 @@
 import 'package:firebase_core/firebase_core.dart';
+import 'package:firstapp1/screens/home.dart';
 import 'package:firstapp1/screens/login.dart';
 import 'package:flutter/material.dart';
 // adb connect 192.168.43.1:5555
@@ -15,8 +16,8 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  MaterialApp(
-      home: ScreenLogin(),
+    return  const MaterialApp(
+      home: ScreenHome(),
     );
   }
 }
