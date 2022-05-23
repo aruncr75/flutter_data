@@ -1,6 +1,6 @@
 // ignore_for_file: avoid_print, prefer_const_constructors
-
 import 'package:flutter/material.dart';
+import 'home_screen.dart';
 
 class ScreenLogin extends StatefulWidget {
   ScreenLogin({Key? key}) : super(key: key);
@@ -27,11 +27,11 @@ class _ScreenLoginState extends State<ScreenLogin> {
             child:
                 Column(crossAxisAlignment: CrossAxisAlignment.end, children: [
               TextFormField(
-                validator: ((_) {
-                  if (_isDataMatched) {
-                    return null;
+                validator: ((value) {
+                  if (value == null || value.isEmpty) {
+                    return "value is empty";
                   } else {
-                    return "Error";
+                    return null;
                   }
                 }),
                 decoration: const InputDecoration(
@@ -42,6 +42,13 @@ class _ScreenLoginState extends State<ScreenLogin> {
                 height: 10,
               ),
               TextFormField(
+                validator: ((value) {
+                  if (value == null || value.isEmpty) {
+                    return "value is empty";
+                  } else {
+                    return null;
+                  }
+                }),
                 decoration: const InputDecoration(
                     hintText: "Enter Password", border: OutlineInputBorder()),
                 obscureText: true,
@@ -62,10 +69,9 @@ class _ScreenLoginState extends State<ScreenLogin> {
                   ),
                   ElevatedButton(
                       onPressed: () {
-                        // saveDataToStotage();
-                        _formKey.currentState!.validate();
-                        checkLogin(context);
-                        print(_usernameController.text);
+                        if (_formKey.currentState!.validate()) {
+                          checkLogin(context);
+                        }
                       },
                       child: const Text('Login'))
                 ],
@@ -78,35 +84,8 @@ class _ScreenLoginState extends State<ScreenLogin> {
   // Future<void> saveDataToStotage() async {
   checkLogin(BuildContext context) {
     if (_usernameController.text == _passwordController.text) {
-    } else {
-      const _errorMessage = "username and password does not match";
-      //snackbar
-      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-          duration: Duration(seconds: 5),
-          backgroundColor: Colors.red,
-          behavior: SnackBarBehavior.floating,
-          margin: EdgeInsets.only(left: 50, right: 50),
-          content: Text(_errorMessage)));
-      //alert dialouge
-      showDialog(
-          context: context,
-          builder: (context1) {
-            return AlertDialog(
-              title: const Text("Error"),
-              content: const Text(_errorMessage),
-              actions: [
-                TextButton(
-                    onPressed: () {
-                      Navigator.of(context1).pop();
-                    },
-                    child: const Text("Close"))
-              ],
-            ); //one more simple dialoge
-          });
-      //show text
-      setState(() {
-        _isDataMatched = false;
-      });
-    }
+      Navigator.of(context)
+          .pushReplacement(MaterialPageRoute(builder: (context) => ScreenHome()));
+    } else {}
   }
 }
