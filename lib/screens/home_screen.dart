@@ -33,9 +33,9 @@ class ScreenHome extends StatelessWidget {
               },
               icon: const Icon(Icons.exit_to_app))
         ],
-      )), 
+      )),
       floatingActionButton: FloatingActionButton(onPressed: () {
-        _incrementCounter();
+        showBottomSheet(context);
       }),
     );
   }
@@ -46,5 +46,17 @@ class ScreenHome extends StatelessWidget {
         MaterialPageRoute(builder: (context) {
       return ScreenLogin();
     }), (route) => false);
+  }
+
+  Future<void> showBottomSheet(BuildContext context) async {
+    showModalBottomSheet(
+        context: context,
+        builder: (ctx1) {
+          return Container(
+            width: double.infinity,
+            height: 400,
+            color: Colors.orange,
+          );
+        });
   }
 }
