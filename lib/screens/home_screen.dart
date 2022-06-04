@@ -4,7 +4,11 @@ import 'package:firstapp1/widgets/wappbar.dart';
 import 'package:flutter/material.dart';
 
 class ScreenHome extends StatelessWidget {
-  const ScreenHome({Key? key}) : super(key: key);
+  ValueNotifier<int> _counter = ValueNotifier(0);
+
+  void _incrementCounter() {
+    _counter.value = _counter.value + 1;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -17,18 +21,26 @@ class ScreenHome extends StatelessWidget {
         // crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Center(child: const Text("Home")),
+          Center(
+              child: ValueListenableBuilder(
+                  valueListenable: _counter,
+                  builder: (BuildContext context, int newValue, Widget? child) {
+                    return Text(newValue.toString());
+                  })),
           IconButton(
               onPressed: () {
                 signOut(context);
               },
               icon: const Icon(Icons.exit_to_app))
         ],
-      )),
-    );  
+      )), 
+      floatingActionButton: FloatingActionButton(onPressed: () {
+        _incrementCounter();
+      }),
+    );
   }
 
-  signOut(BuildContext context) async{
+  signOut(BuildContext context) async {
     await sharedp.clear();
     Navigator.of(context).pushAndRemoveUntil(
         MaterialPageRoute(builder: (context) {
