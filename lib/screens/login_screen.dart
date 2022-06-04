@@ -1,5 +1,7 @@
 // ignore_for_file: avoid_print, prefer_const_constructors
+import 'package:firstapp1/widgets/wappbar.dart';
 import 'package:flutter/material.dart';
+import '../main.dart';
 import 'home_screen.dart';
 
 class ScreenLogin extends StatefulWidget {
@@ -18,6 +20,7 @@ class _ScreenLoginState extends State<ScreenLogin> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        appBar: CustomAppBar(),
         backgroundColor: const Color.fromARGB(255, 252, 252, 252),
         body: SafeArea(
             child: Padding(
@@ -82,10 +85,12 @@ class _ScreenLoginState extends State<ScreenLogin> {
   }
 
   // Future<void> saveDataToStotage() async {
-  checkLogin(BuildContext context) {
+  checkLogin(BuildContext context) async{
     if (_usernameController.text == _passwordController.text) {
-      Navigator.of(context)
-          .pushReplacement(MaterialPageRoute(builder: (context) => ScreenHome()));
-    } else {}
+     await sharedp.setString('name', _usernameController.text);
+      print(sharedp.getString('name'));
+      Navigator.of(context).pushReplacement(
+          MaterialPageRoute(builder: (context) => ScreenHome()));
+    } 
   }
 }

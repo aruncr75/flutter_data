@@ -1,5 +1,8 @@
+import 'package:firstapp1/screens/home_screen.dart';
 import 'package:firstapp1/screens/login_screen.dart';
 import 'package:flutter/material.dart';
+
+import '../main.dart';
 
 class ScreenSplash extends StatefulWidget {
   const ScreenSplash({Key? key}) : super(key: key);
@@ -11,7 +14,8 @@ class ScreenSplash extends StatefulWidget {
 class _ScreenSplashState extends State<ScreenSplash> {
   @override
   void initState() {
-    gotoLogin(context);
+    LoginCheck(context);
+
     super.initState();
   }
 
@@ -49,9 +53,22 @@ class _ScreenSplashState extends State<ScreenSplash> {
     super.dispose();
   }
 
+  LoginCheck(BuildContext context)async {
+   final chcekLogin =await sharedp.getString('name');
+    if (chcekLogin != null) {
+      Navigator.of(context).pushReplacement(MaterialPageRoute(
+        builder: (context) {
+          return ScreenHome();
+        },
+      ));
+    } else {
+      gotoLogin(context);
+    }
+  }
+
   Future<void> gotoLogin(BuildContext context) async {
     await Future.delayed(const Duration(milliseconds: 100));
-    Navigator.of(context)
-        .push(MaterialPageRoute(builder: (context) => ScreenLogin()));
+    Navigator.of(context).pushReplacement(
+        MaterialPageRoute(builder: (context) => ScreenLogin()));
   }
 }

@@ -1,4 +1,6 @@
+import 'package:firstapp1/main.dart';
 import 'package:firstapp1/screens/login_screen.dart';
+import 'package:firstapp1/widgets/wappbar.dart';
 import 'package:flutter/material.dart';
 
 class ScreenHome extends StatelessWidget {
@@ -7,6 +9,7 @@ class ScreenHome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: wAppBar,
       // appBar: AppBar(title: Text(name),),
       backgroundColor: Color.fromARGB(255, 255, 255, 255),
       body: SafeArea(
@@ -22,10 +25,11 @@ class ScreenHome extends StatelessWidget {
               icon: const Icon(Icons.exit_to_app))
         ],
       )),
-    );
+    );  
   }
 
-  signOut(BuildContext context) {
+  signOut(BuildContext context) async{
+    await sharedp.clear();
     Navigator.of(context).pushAndRemoveUntil(
         MaterialPageRoute(builder: (context) {
       return ScreenLogin();
