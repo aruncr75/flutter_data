@@ -1,4 +1,4 @@
-import 'package:firstapp1/screens/splash_screen.dart';
+import 'package:firstapp1/screens/screen_one.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -16,8 +16,8 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: ScreenSplash(),
+    return  MaterialApp(
+      home: ScreenOne(),
     );
   }
 }
