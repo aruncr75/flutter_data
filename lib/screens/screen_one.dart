@@ -19,7 +19,7 @@ class _ScreenOneState extends State<ScreenOne> {
   Widget build(BuildContext context) {
     return Scaffold(
       // body: _pages[0],
-      body: _pages[_currentSelectedIndex], 
+      body: SafeArea(child: _pages[_currentSelectedIndex]), 
       bottomNavigationBar: BottomNavigationBar(
         selectedItemColor: Colors.amber,
           currentIndex: _currentSelectedIndex,  
