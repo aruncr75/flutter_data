@@ -11,8 +11,8 @@ class ScreenOne extends StatefulWidget {
 class _ScreenOneState extends State<ScreenOne> {
   int _currentSelectedIndex = 0;
   final _pages =[ScreenHome(),
-  const screenSearch(),
-  const ScreenAccount(),
+       screenSearch(),
+   ScreenAccount(),
   ];
 
   @override
