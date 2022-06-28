@@ -26,10 +26,10 @@ class ScreenHome extends StatelessWidget {
             ElevatedButton(
                 onPressed: () {
                   getdata();
-                  Navigator.of(context)
-                      .push(MaterialPageRoute(builder: (context) {
-                    return ScreenLogin();
-                  }));
+                  // Navigator.of(context)
+                  //     .push(MaterialPageRoute(builder: (context) {
+                  //   return ScreenLogin();
+                  // }));
                 },
                 child: const Text("Click"))
           ],
@@ -41,9 +41,59 @@ class ScreenHome extends StatelessWidget {
 
 Future<void> getdata() async {
   dynamic db = FirebaseFirestore.instance;
-  String _requestid = "192836r9812709e172097";
-  String _userid = "Rjesh";
-  final docRef = await db.collection("/users/$_userid/$_requestid");
+  // String _requestid = "192836r9812709e172097";
+  // String _userid = "Rjesh";
+//   final cities = db.collection("cities");
+// final data1 = <String, dynamic>{
+//   "name": "San Francisco",
+//   "state": "CA",
+//   "country": "USA",
+//   "capital": false,
+//   "population": 860000,
+//   "regions": ["west_coast", "norcal"]
+// };
+// cities.doc("SF").set(data1);
+
+// final data2 = <String, dynamic>{
+//   "name": "Los Angeles",
+//   "state": "CA",
+//   "country": "USA",
+//   "capital": false,
+//   "population": 3900000,
+//   "regions": ["west_coast", "socal"],
+// };
+// cities.doc("LA").set(data2);
+
+// final data3 = <String, dynamic>{
+//   "name": "Washington D.C.",
+//   "state": null,
+//   "country": "USA",
+//   "capital": true,
+//   "population": 680000,
+//   "regions": ["east_coast"]
+// };
+// cities.doc("DC").set(data3);
+
+// final data4 = <String, dynamic>{
+//   "name": "Tokyo",
+//   "state": null,
+//   "country": "Japan",
+//   "capital": true,
+//   "population": 9000000,
+//   "regions": ["kanto", "honshu"]
+// };
+// cities.doc("TOK").set(data4);
+
+// final data5 = <String, dynamic>{
+//   "name": "Beijing",
+//   "state": null,
+//   "country": "China",
+//   "capital": true,
+//   "population": 21500000,
+//   "regions": ["jingjinji", "hebei"],
+// };
+// cities.doc("BJ").set(data5);
+  final docRef = await db.collection("cities");
 
   final listener = await docRef.snapshots().listen(
     (event) async {
