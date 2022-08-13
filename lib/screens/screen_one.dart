@@ -1,68 +1,93 @@
 import 'package:flutter/material.dart';
-import 'package:location/location.dart';
 
-class ScreenOne extends StatelessWidget {
+import 'package:intl/intl.dart';
+
+class ScreenOne extends StatefulWidget {
   const ScreenOne({Key? key}) : super(key: key);
+
+  @override
+  State<ScreenOne> createState() => _ScreenOneState();
+}
+
+class _ScreenOneState extends State<ScreenOne> {
+  DateTime dateTime = DateTime.now();
+  final _requestedtimeslotController = TextEditingController();
+  DateTime? requestedtimeslot;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Center(
-      child: Column(
-        children: [Text(DateTime.now().toString()),
-          ElevatedButton(
-            child: Text(
-              "Click me",
+        body: SafeArea(
+      child: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            TextFormField(
+              validator: (value) {
+                if (value == null || value.isEmpty) {
+                  return "Enter Date";
+                } else {
+                  return null;
+                }
+              },
+              showCursor: false,
+              readOnly: true,
+              style: const TextStyle(fontSize: 16),
+              controller: _requestedtimeslotController,
+              decoration: InputDecoration(
+                contentPadding: const EdgeInsets.symmetric(
+                    vertical: 10.0, horizontal: 10.0),
+                helperText: " ",
+                labelText: "Date and Time",
+                hintText: "Date and Time",
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(5),
+                ),
+              ),
+              onTap: () async {
+               
+
+                requestedtimeslot = await showDatePicker(
+                    context: context,
+                    initialDate: DateTime.now(),
+                    firstDate: DateTime(2000),
+                    lastDate: DateTime(2101));
+
+                     final initialTime = TimeOfDay(hour: 9, minute: 0);
+                final newTime = await showTimePicker(
+                  context: context,
+                  initialTime: initialTime,
+                );
+
+                print(newTime);
+
+                if (requestedtimeslot != null) {
+                 dateTime = DateTime(
+        requestedtimeslot!.year,
+        requestedtimeslot!.month,
+        requestedtimeslot!.day,
+        newTime!.hour,
+        newTime.minute,
+      );          
+                  setState(() {
+                    _requestedtimeslotController.text = DateFormat.yMMMMEEEEd().add_jm().format(dateTime);
+                    // _assetExpiryController.text = DateFormat('dd/MM/yyyy HH:mm').format(dateTime);
+                  });
+                } else {
+                  print("Date is not selected");
+                }
+              },
             ),
-            onPressed: () {
-              location();
-            },
-          ),
-        ],
+            Text(DateTime.now().toString()),
+            ElevatedButton(
+              child: Text(
+                "Click me",
+              ),
+              onPressed: () {},
+            ),
+          ],
+        ),
       ),
     ));
   }
-}
-
-
-
-
-location() async {
-  bool _serviceEnabled;
-  PermissionStatus? _permissionGranted;
-  LocationData? _locationData;
-  Location location = new Location();
-
-  LocationAccuracy? accuracy = LocationAccuracy.high;
-  int? interval = 1000;
-  double? distanceFilter = 0;
-
-  location.changeSettings(
-      accuracy: accuracy, interval: interval, distanceFilter: distanceFilter);
-  // location.requestPermission();
-
-  _serviceEnabled = await location.serviceEnabled();
-  if (!_serviceEnabled) {
-    _serviceEnabled = await location.requestService();
-    if (!_serviceEnabled) {
-      return;
-    }
-  }
-
-  _permissionGranted = await location.hasPermission();
-  if (_permissionGranted == PermissionStatus.denied) {
-    _permissionGranted = await location.requestPermission();
-    if (_permissionGranted != PermissionStatus.granted) {
-      return;
-    }
-  }
-
-//current location
-  _locationData = await location.getLocation();
-  print(_locationData.accuracy);
-
-  //listen to location
-  // location.onLocationChanged.listen((LocationData currentLocation) {
-  //   print(currentLocation);
-  // });
 }
