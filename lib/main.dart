@@ -1,8 +1,6 @@
 
-import 'package:firstapp1/screens/persmission.dart';
 import 'package:firstapp1/screens/screen_one.dart';
-import 'package:firstapp1/screens/screen_three.dart';
-import 'package:firstapp1/screens/screen_two.dart';
+
 import 'package:flutter/material.dart';
 
 
@@ -21,7 +19,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: ScreenPermission(),
+      home: ScreenOne(),
     );
   }
 }
