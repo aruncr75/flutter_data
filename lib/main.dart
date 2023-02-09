@@ -1,6 +1,6 @@
 import 'package:firstapp1/screens/ScreenHome/screen_home.dart';
 import 'package:flutter/material.dart';
-// adb connect 192.168.43.1:5555
+//test
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
