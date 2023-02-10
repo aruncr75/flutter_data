@@ -23,7 +23,7 @@ class MyHomePage extends StatelessWidget {
                     onPressed: () {
                       Navigator.of(context)
                           .push(MaterialPageRoute(builder: ((context) {
-                        return ScreenPage1();
+                        return const ScreenPage1();
                       })));
                     },
                     child: const Text("Click me"))),
@@ -33,8 +33,10 @@ class MyHomePage extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
+          
           // toggle between light and dark theme
-
+          ThemeData theme1 = themeNotifier.getTheme();
+          print("pressed${theme1}");
           ThemeData theme =
               themeNotifier.getTheme().brightness == Brightness.light
                   ? darkTheme

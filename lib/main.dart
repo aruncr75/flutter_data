@@ -31,13 +31,18 @@ class MaterialAppWithTheme extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final themeMode = Provider.of<ThemeNotifier>(context).getTheme()== lightTheme ? ThemeMode.light : ThemeMode.dark;
-    // final themeMode = themeNotifier.getTheme() == lightTheme ? ThemeMode.light : ThemeMode.dark;
+
+    return Consumer<ThemeNotifier>(
+  builder: (context, themeNotifier, child) {
+    final themeMode = themeNotifier.getTheme() == lightTheme ? ThemeMode.light : ThemeMode.dark;
+
     return MaterialApp(
       theme: lightTheme,
       darkTheme: darkTheme,
-      themeMode:themeMode,
+      themeMode: themeMode,
       home: const MyHomePage(),
     );
+  },
+);
   }
 }
