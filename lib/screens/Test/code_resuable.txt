@@ -1,0 +1,12 @@
+Provider.of<ThemeNotifier>(context, listen: false)
+
+ Navigator.of(context).push(MaterialPageRoute(builder: (context){
+              return const ScreenPage1();
+            }));
+
+ floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          
+        },
+        child: const Icon(Icons.wb_sunny),
+      ),           

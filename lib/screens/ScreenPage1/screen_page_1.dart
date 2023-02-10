@@ -1,35 +1,20 @@
-import 'package:firstapp1/screens/Provider/theme_provider.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 class ScreenPage1 extends StatelessWidget {
   const ScreenPage1({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final themeNotifier = Provider.of<ThemeNotifier>(context);
     return Scaffold(
       backgroundColor: Colors.blueGrey,
       appBar: AppBar(
-        title: const Text("Page 1"),
+        title: const Text("Page_1"),
       ),
       body: Center(
         child: Column(
           children: [
-              IconButton(
-  icon: Provider.of<ThemeNotifier>(context, listen: false).themeMode == ThemeMode.dark
-      ? const Icon(Icons.wb_sunny)
-      : const Icon(Icons.brightness_3),
-  onPressed: () {
-    themeNotifier.toggleTheme(
-        Provider.of<ThemeNotifier>(context, listen: false).themeMode == ThemeMode.light);
-  },
-)
-,
-            ButtonTheme(
-                child: ElevatedButton(
-                    onPressed: () {}, child: const Text("Click me"))),
-            Text("Page 1", style: Theme.of(context).textTheme.headline5),
+            Text("Page_1", style: Theme.of(context).textTheme.headline5),
+            ElevatedButton(onPressed: () {}, child: const Text("Click me")),
           ],
         ),
       ),
