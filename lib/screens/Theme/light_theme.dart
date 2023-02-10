@@ -12,12 +12,23 @@ final lightTheme = ThemeData(
 
 //Elevatedbutton
   elevatedButtonTheme: ElevatedButtonThemeData(
-        style: ButtonStyle(
-            padding: MaterialStateProperty.all<EdgeInsetsGeometry>(
-                const EdgeInsets.symmetric(horizontal: 40.0, vertical: 20.0)),
-            shape: MaterialStateProperty.all<OutlinedBorder>(
-                RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(20.0))),
-            backgroundColor: MaterialStateProperty.all<Color>(Colors.amberAccent))),
+      style: ButtonStyle(
+          padding: MaterialStateProperty.all<EdgeInsetsGeometry>(
+              const EdgeInsets.symmetric(horizontal: 40.0, vertical: 20.0)),
+          shape: MaterialStateProperty.all<OutlinedBorder>(
+              RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20.0))),
+          backgroundColor:
+              MaterialStateProperty.all<Color>(Colors.amberAccent))),
+);
+
+final elevatedButtonTheme1 = ElevatedButtonThemeData(
+  style: ButtonStyle(
+      padding: MaterialStateProperty.all<EdgeInsetsGeometry>(
+          const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0)),
+      shape: MaterialStateProperty.all<OutlinedBorder>(
+          RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0))),
+      backgroundColor: MaterialStateProperty.all<Color>(
+          const Color.fromARGB(255, 243, 33, 33))),
 );
 

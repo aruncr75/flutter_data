@@ -1,5 +1,7 @@
 import 'package:firstapp1/screens/Provider/theme_provider.dart';
 import 'package:firstapp1/screens/ScreenPage1/screen_page_1.dart';
+import 'package:firstapp1/screens/Theme/dark_theme.dart';
+import 'package:firstapp1/screens/Theme/light_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -20,24 +22,25 @@ class HomePage extends StatelessWidget {
                   .toggleTheme(value);
             },
             value:
-                Provider.of<ThemeNotifier>(context, listen: false).themeMode ==
+                themeNotifier.themeMode ==
                     ThemeMode.dark,
           ),
            IconButton(
-  icon: Provider.of<ThemeNotifier>(context, listen: false).themeMode == ThemeMode.dark
+  icon: themeNotifier.themeMode == ThemeMode.dark
       ? const Icon(Icons.wb_sunny)
       : const Icon(Icons.brightness_3),
   onPressed: () {
     themeNotifier.toggleTheme(
-        Provider.of<ThemeNotifier>(context, listen: false).themeMode == ThemeMode.light);
+       themeNotifier.themeMode == ThemeMode.light);
   },
 )
         ],
       ),
       body: Center(
         child: ElevatedButton(
-          onPressed: () {
-            Navigator.of(context).push(MaterialPageRoute(builder: (context) {
+          style: themeNotifier.themeMode == ThemeMode.dark ? elevatedButtonTheme2.style:elevatedButtonTheme1.style,
+          onPressed:(){
+            Navigator.of(context).push(MaterialPageRoute(builder: (context){
               return const ScreenPage1();
             }));
           },
