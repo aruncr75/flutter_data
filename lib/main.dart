@@ -34,7 +34,7 @@ class MaterialAppWithTheme extends StatelessWidget {
     return Consumer<ThemeNotifier>(
       builder: (context, themeNotifier, child) {
         return MaterialApp(
-          theme: themeNotifier.isDark ? lightTheme:darkTheme,
+          theme: themeNotifier.isDark ? darkTheme : lightTheme,
           themeMode: themeNotifier.isDark ? ThemeMode.dark : ThemeMode.light,
           darkTheme: darkTheme,
           home: const HomePage(),
