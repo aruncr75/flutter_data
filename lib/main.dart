@@ -18,9 +18,9 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       child: const MaterialAppWithTheme(),
       providers: [
-        ChangeNotifierProvider<ThemeNotifier>(
-          create: (_) => ThemeNotifier(ThemeData.light()),
-        ),
+        ChangeNotifierProvider(
+          create: (_) => ThemeNotifier(),
+        )
       ],
     );
   }
@@ -31,18 +31,15 @@ class MaterialAppWithTheme extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     return Consumer<ThemeNotifier>(
-  builder: (context, themeNotifier, child) {
-    final themeMode = themeNotifier.getTheme() == lightTheme ? ThemeMode.light : ThemeMode.dark;
-
-    return MaterialApp(
-      theme: lightTheme,
-      darkTheme: darkTheme,
-      themeMode: themeMode,
-      home: const MyHomePage(),
+      builder: (context, themeNotifier, child) {
+        return MaterialApp(
+          theme: themeNotifier.isDark ? lightTheme:darkTheme,
+          themeMode: themeNotifier.isDark ? ThemeMode.dark : ThemeMode.light,
+          darkTheme: darkTheme,
+          home: const HomePage(),
+        );
+      },
     );
-  },
-);
   }
 }

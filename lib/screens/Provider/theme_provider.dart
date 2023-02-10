@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 
 class ThemeNotifier with ChangeNotifier {
-  ThemeData _themeData;
-  ThemeNotifier(this._themeData);
-  getTheme() => _themeData;
-  setTheme(ThemeData themeData) {
-    _themeData = themeData;
+  bool _isDark = false;
+
+  bool get isDark => _isDark;
+
+  set isDark(bool value) {
+    _isDark = value;
     notifyListeners();
   }
 }
