@@ -10,18 +10,28 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     final themeNotifier = Provider.of<ThemeNotifier>(context);
     return Scaffold(
-      backgroundColor: Colors.blueGrey  ,
+      backgroundColor: Colors.blueGrey,
       appBar: AppBar(
         title: const Text("Dark and Light Theme"),
         actions: <Widget>[
-          IconButton(
-            icon: themeNotifier.isDark
-                ? const Icon(Icons.wb_sunny)
-                : const Icon(Icons.brightness_3),
-            onPressed: () {
-              themeNotifier.isDark = !themeNotifier.isDark;
+          Switch(
+            onChanged: (value) {
+              themeNotifier
+                  .toggleTheme(value);
             },
+            value:
+                Provider.of<ThemeNotifier>(context, listen: false).themeMode ==
+                    ThemeMode.dark,
           ),
+           IconButton(
+  icon: Provider.of<ThemeNotifier>(context, listen: false).themeMode == ThemeMode.dark
+      ? const Icon(Icons.wb_sunny)
+      : const Icon(Icons.brightness_3),
+  onPressed: () {
+    themeNotifier.toggleTheme(
+        Provider.of<ThemeNotifier>(context, listen: false).themeMode == ThemeMode.light);
+  },
+)
         ],
       ),
       body: Center(
