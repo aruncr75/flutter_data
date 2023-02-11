@@ -38,7 +38,7 @@ class HomePage extends StatelessWidget {
       ),
       body: Center(
         child: ElevatedButton(  
-          style: themeNotifier.themeMode == ThemeMode.dark ? elevatedButtonTheme2.style : elevatedButtonTheme1.style,
+          style: themeNotifier.themeMode == ThemeMode.dark ? elevatedButtondarkTheme1.style : elevatedButtonTheme1.style,
           onPressed:(){
             Navigator.of(context).push(MaterialPageRoute(builder: (context){
               return const ScreenPage1();

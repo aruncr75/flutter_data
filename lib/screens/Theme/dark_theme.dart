@@ -10,7 +10,7 @@ final darkTheme = ThemeData(
     headline5: TextStyle(color: Colors.black),
   ),
 );
-final elevatedButtonTheme2 = ElevatedButtonThemeData(
+final elevatedButtondarkTheme1 = ElevatedButtonThemeData(
   style: ButtonStyle(
       padding: MaterialStateProperty.all<EdgeInsetsGeometry>(
           const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0)),
