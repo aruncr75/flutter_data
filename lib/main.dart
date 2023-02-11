@@ -36,9 +36,9 @@ class MaterialAppWithTheme extends StatelessWidget {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
           theme: lightTheme,
-          themeMode:themeNotifier.themeMode,
+          themeMode: themeNotifier.themeMode,
           darkTheme: darkTheme,
-          home: HomePage(),
+          home: const HomePage(),
         );
       },
     );

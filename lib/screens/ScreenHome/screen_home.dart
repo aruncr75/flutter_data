@@ -5,19 +5,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
-  HomePage({super.key});
-
-  final ValueNotifier<int> _selectedIndex = ValueNotifier(0);
-
-  static final List<Widget> _widgetOptions = <Widget>[
-    const ScreenPage1(),
-    const ScreenPage2(),
-    const ScreenPage3(),
-  ];
-
-  void _onItemTapped(int index) {
-    _selectedIndex.value = index;
-  }
+  const HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +14,7 @@ class HomePage extends StatelessWidget {
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
-            label:'Products',
+            label: 'Products',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.search),
@@ -42,24 +30,25 @@ class HomePage extends StatelessWidget {
         switch (index) {
           case 0:
             return CupertinoTabView(builder: (context) {
-              return CupertinoPageScaffold(
+              return const CupertinoPageScaffold(
                 child: ScreenPage1(),
               );
             });
           case 1:
             return CupertinoTabView(builder: (context) {
-              return CupertinoPageScaffold(
+              return const CupertinoPageScaffold(
                 child: ScreenPage2(),
               );
             });
           case 2:
             return CupertinoTabView(builder: (context) {
-              return CupertinoPageScaffold(
+              return const CupertinoPageScaffold(
                 child: ScreenPage3(),
               );
             });
-          default: return CupertinoTabView(builder: (context) {
-              return CupertinoPageScaffold(
+          default:
+            return CupertinoTabView(builder: (context) {
+              return const CupertinoPageScaffold(
                 child: ScreenPage1(),
               );
             });

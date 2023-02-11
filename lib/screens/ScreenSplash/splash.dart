@@ -1,4 +1,3 @@
-
 import 'package:firstapp1/screens/ScreenHome/screen_home.dart';
 import 'package:flutter/material.dart';
 
@@ -45,6 +44,6 @@ class _ScreenSplashState extends State<ScreenSplash> {
   Future<void> goToLogin() async {
     await Future.delayed(const Duration(milliseconds: 100));
     Navigator.of(context)
-        .push(MaterialPageRoute(builder: (context) =>    HomePage()));
+        .push(MaterialPageRoute(builder: (context) => const HomePage()));
   }
 }
