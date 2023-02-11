@@ -18,8 +18,8 @@ final lightTheme = ThemeData(
           shape: MaterialStateProperty.all<OutlinedBorder>(
               RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(20.0))),
-          backgroundColor:
-              MaterialStateProperty.all<Color>(Colors.amberAccent))),
+          backgroundColor: MaterialStateProperty.all<Color>(
+              const Color.fromARGB(125, 64, 70, 255)))),
 );
 
 final elevatedButtonTheme1 = ElevatedButtonThemeData(
@@ -31,4 +31,3 @@ final elevatedButtonTheme1 = ElevatedButtonThemeData(
       backgroundColor: MaterialStateProperty.all<Color>(
           const Color.fromARGB(255, 243, 33, 33))),
 );
-

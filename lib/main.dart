@@ -38,7 +38,7 @@ class MaterialAppWithTheme extends StatelessWidget {
           theme: lightTheme,
           themeMode:themeNotifier.themeMode,
           darkTheme: darkTheme,
-          home: const HomePage(),
+          home: HomePage(),
         );
       },
     );
