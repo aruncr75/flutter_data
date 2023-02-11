@@ -1,6 +1,7 @@
 import 'package:firstapp1/screens/ScreenPage1/screen_page_1.dart';
 import 'package:firstapp1/screens/ScreenPage2/screen_page_2.dart';
 import 'package:firstapp1/screens/ScreenPage3/screen_page_3.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
@@ -20,34 +21,50 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.blueGrey,
-      body: Center(
-        child: ValueListenableBuilder(
-          valueListenable: _selectedIndex,
-          builder: (context, int value, child) =>
-              _widgetOptions.elementAt(value),
-        ),
-      ),
-      bottomNavigationBar: BottomNavigationBar(
+    return CupertinoTabScaffold(
+      tabBar: CupertinoTabBar(
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
-            label: 'Tab 1',
+            label:'Products',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.business),
-            label: 'Tab 2',
+            icon: Icon(Icons.search),
+            label: 'Search',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.school),
-            label: 'Tab 3',
+            icon: Icon(Icons.shopping_cart),
+            label: 'Cart',
           ),
         ],
-        currentIndex: _selectedIndex.value,
-        selectedItemColor: Colors.blue[800],
-        onTap: _onItemTapped,
       ),
+      tabBuilder: (context, index) {
+        switch (index) {
+          case 0:
+            return CupertinoTabView(builder: (context) {
+              return CupertinoPageScaffold(
+                child: ScreenPage1(),
+              );
+            });
+          case 1:
+            return CupertinoTabView(builder: (context) {
+              return CupertinoPageScaffold(
+                child: ScreenPage2(),
+              );
+            });
+          case 2:
+            return CupertinoTabView(builder: (context) {
+              return CupertinoPageScaffold(
+                child: ScreenPage3(),
+              );
+            });
+          default: return CupertinoTabView(builder: (context) {
+              return CupertinoPageScaffold(
+                child: ScreenPage1(),
+              );
+            });
+        }
+      },
     );
   }
 }

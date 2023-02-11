@@ -31,16 +31,18 @@ class ScreenPage1 extends StatelessWidget {
           )
         ],
       ),
-      body: Center(
-        child: Column(
-          children: [
-            Text("Page_1", style: Theme.of(context).textTheme.headline5),
-            ElevatedButton(onPressed: () {
-               Navigator.of(context).push(MaterialPageRoute(builder: (context){
-              return const ScreenPage1_0();
-            }));
-            }, child: const Text("Click me")),
-          ],
+      body: SafeArea(
+        child: Center(
+          child: Column(
+            children: [
+              Text("Page_1", style: Theme.of(context).textTheme.headline5),
+              ElevatedButton(onPressed: () {
+                 Navigator.of(context).push(MaterialPageRoute(builder: (context){
+                return const ScreenPage1_0();
+              }));
+              }, child: const Text("Click me")),
+            ],
+          ),
         ),
       ),
       floatingActionButton: FloatingActionButton(
