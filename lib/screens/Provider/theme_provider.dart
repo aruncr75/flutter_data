@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class ThemeNotifier with ChangeNotifier {
-  ThemeMode _themeMode = ThemeMode.light;
+  ThemeMode _themeMode = ThemeMode.dark;
   // ThemeMode _themeMode =
   //     WidgetsBinding.instance.window.platformBrightness == Brightness.dark
   //         ? ThemeMode.dark

@@ -1,4 +1,5 @@
 import 'package:firstapp1/screens/Provider/theme_provider.dart';
+import 'package:firstapp1/screens/Theme/dark_theme.dart';
 import 'package:firstapp1/screens/Widgets/custom_appbar.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -13,13 +14,13 @@ class ScreenPage2 extends StatelessWidget {
       backgroundColor: Colors.blueGrey,
       appBar: CustomAppBar(title: const Text("Page_2")),
       body: Center(
-        child: Column(
-          children: [
-            Text("Page_2", style: Theme.of(context).textTheme.headline5),
-            ElevatedButton(onPressed: () {}, child: const Text("Click me")),
-          ],
-        ),
-      ),
+          child: ListView(
+        children: [
+          ListTile(
+            title: Text("Hello",style: textdarkTheme.headline5,),
+          )
+        ],
+      )),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           // toggle between light and dark theme

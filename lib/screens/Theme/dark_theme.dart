@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 final darkTheme = ThemeData(
   brightness: Brightness.dark,
   primarySwatch: Colors.blue,
-  backgroundColor: Colors.white,
+  backgroundColor: Colors.grey,
   textTheme: const TextTheme(
     bodyText1: TextStyle(color: Colors.black),
     bodyText2: TextStyle(color: Colors.grey),
@@ -18,4 +18,12 @@ final elevatedButtondarkTheme1 = ElevatedButtonThemeData(
           RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0))),
       backgroundColor: MaterialStateProperty.all<Color>(
           const Color.fromARGB(255, 205, 243, 33))),
+);
+
+const textdarkTheme = TextTheme(
+    headline5: TextStyle(
+  color: Colors.black,
+  fontSize: 22.0,
+  fontWeight: FontWeight.bold,
+)
 );

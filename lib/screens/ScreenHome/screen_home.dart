@@ -31,25 +31,25 @@ class HomePage extends StatelessWidget {
           case 0:
             return CupertinoTabView(builder: (context) {
               return const CupertinoPageScaffold(
-                child: ScreenPage1(),
+                child: SafeArea(child: ScreenPage1()),
               );
             });
           case 1:
             return CupertinoTabView(builder: (context) {
               return const CupertinoPageScaffold(
-                child: ScreenPage2(),
+                child: SafeArea(child: ScreenPage2()),
               );
             });
           case 2:
             return CupertinoTabView(builder: (context) {
               return const CupertinoPageScaffold(
-                child: ScreenPage3(),
+                child: SafeArea(child: ScreenPage3()),
               );
             });
           default:
             return CupertinoTabView(builder: (context) {
               return const CupertinoPageScaffold(
-                child: ScreenPage1(),
+                child: SafeArea(child: ScreenPage1()),
               );
             });
         }
