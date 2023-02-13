@@ -1,4 +1,5 @@
 import 'package:firstapp1/screens/Provider/theme_provider.dart';
+import 'package:firstapp1/screens/ScreenPage3/screen_page_3_0.dart';
 import 'package:firstapp1/screens/Widgets/custom_appbar.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -16,7 +17,11 @@ class ScreenPage3 extends StatelessWidget {
         child: Column(
           children: [
             Text("Page_3", style: Theme.of(context).textTheme.headline5),
-            ElevatedButton(onPressed: () {}, child: const Text("Click me")),
+            ElevatedButton(onPressed: () {
+               Navigator.of(context).push(MaterialPageRoute(maintainState:false,builder: (context){
+              return const ScreenPage3_0();
+            }));
+            }, child: const Text("Click me")),
           ],
         ),
       ),
